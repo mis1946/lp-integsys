@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="VBoxForm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="500.0" stylesheets="@../styles/Parameter.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="30.0" prefWidth="500.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="3.0">
+               <image>
+                  <Image url="@../images/ic_launcher1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="5.0" layoutY="4.0" text="Financer" textFill="WHITE" AnchorPane.leftAnchor="30.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnExit" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="21.0" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="8.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fx:id="glyphExit" glyphName="TIMES" />
+               </graphic>
+            </Button>
+            <Separator layoutY="26.0" prefHeight="0.0" prefWidth="500.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorField" prefHeight="271.0" prefWidth="500.0" style="-fx-background-color: #B3B6B7;">
+         <children>
+            <GridPane prefHeight="240.0" prefWidth="489.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField prefHeight="27.0" prefWidth="374.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="4" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: #686868;">
+         <children>
+            <Button fx:id="btnSave" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="290.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FLOPPY_ALT" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnUpdate" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="160.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Update" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="PENCIL" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnCancel" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="432.0" layoutY="5.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="Cancel" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGN_OUT" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnClose" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="377.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="POWER_OFF" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnSearch" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="363.0" layoutY="5.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Search" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SEARCH" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnBrowse" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="297.0" layoutY="5.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Browse" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FOLDER_OPEN" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnNew" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="151.0" layoutY="4.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE_ALT" size="25" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnActivate" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" text="Activate" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="CHECK" size="25" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
