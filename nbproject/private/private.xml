@@ -22,7 +22,6 @@
         </group>
         <group name="GCard"/>
         <group name="POS"/>
-        <group/>
         <group name="Los Pedritos">
             <file>file:/D:/GuanzonL/GMC%20SEG%20Folder%20-%20Java/RMJ%20SOLUTIONS/cas-food-inventory-fx-neo/src/org/rmj/cas/food/inventory/fx/views/POReceivingRegController.java</file>
             <file>file:/D:/GuanzonL/GMC%20SEG%20Folder%20-%20Java/RMJ%20SOLUTIONS/cas-food-inventory-fx-neo/src/org/rmj/cas/food/inventory/fx/views/InvAdjustmentController.java</file>
@@ -34,5 +33,15 @@
             <file>file:/D:/GuanzonL/GMC%20SEG%20Folder%20-%20Java/RMJ%20SOLUTIONS/cas-food-inventory-fx-neo/nbproject/project.properties</file>
         </group>
         <group name="LP IntegSys"/>
+        <group>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/DailyProductionRegController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/PurchaseOrderRegController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvTransferController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvTransPostingController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/DailyProductionController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvAdjustmentController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvWasteController.java</file>
+            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvWasteRegController.java</file>
+        </group>
     </open-files>
 </project-private>
