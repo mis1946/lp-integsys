@@ -15,6 +15,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -854,18 +855,37 @@ public class DailyProductionController implements Initializable {
         TableColumn<RawTable, String> index02 = new TableColumn<RawTable, String>("Barcode");
         index02.setCellValueFactory(new PropertyValueFactory<org.rmj.cas.food.inventory.fx.views.RawTable,String>("index02"));
         index02.setCellFactory(TextFieldTableCell.forTableColumn());
+//       
+        index02.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == ENTER || event.getCode() == F3){
+//                    RawTable tableModel = event.getRowValue();
+//                    tableModel.setIndex02(event.getNewValue());
+//                    if (poTrans.SearchInv(pnRawdata, 3, index02.getC, false, true)){
+//                        tableModel.setIndex02(poTrans.getInvOthers(pnRawdata, "sBarCodex").toString());
+//                        tableModel.setIndex03(poTrans.getInvOthers(pnRawdata, "sDescript").toString());
+//                    }
+//                    loadRawDetail();
+                    System.out.println(index02.getOnEditCommit());
+                }
+            }
+        });
         index02.setOnEditCommit(new EventHandler<CellEditEvent<RawTable, String>>() {
             @Override
             public void handle(CellEditEvent<RawTable, String> event) {
-             RawTable tableModel = event.getRowValue();
-             tableModel.setIndex02(event.getNewValue());
-                if (poTrans.SearchInv(pnRawdata, 3, tableModel.getIndex02(), true, true)){
+                
+                RawTable tableModel = event.getRowValue();
+                tableModel.setIndex02(event.getNewValue());
+                System.out.println(" = " + event.getEventType());
+                if (poTrans.SearchInv(pnRawdata, 3, tableModel.getIndex02(), false, true)){
                     tableModel.setIndex02(poTrans.getInvOthers(pnRawdata, "sBarCodex").toString());
                     tableModel.setIndex03(poTrans.getInvOthers(pnRawdata, "sDescript").toString());
                 }
                 loadRawDetail();
-            }
+           }
         });
+        
         
         TableColumn<RawTable, String> index03 = new TableColumn<RawTable, String>("Description");
         index03.setCellValueFactory(new PropertyValueFactory<org.rmj.cas.food.inventory.fx.views.RawTable,String>("index03"));

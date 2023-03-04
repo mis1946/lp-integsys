@@ -11,20 +11,17 @@
     <jar href="lib\appdriver-agent.jar" size="86333" download="eager" />
     <jar href="lib\appdriver-agentfx-ui.jar" size="229801" download="eager" />
     <jar href="lib\appdriver-agentfx.jar" size="118764" download="eager" />
-    <jar href="lib\appdriver-base.jar" size="144288" download="eager" />
+    <jar href="lib\appdriver-base.jar" size="144634" download="eager" />
     <jar href="lib\appdriver-constant.jar" size="10194" download="eager" />
-    <jar href="lib\appdriver-iface.jar" size="5748" download="eager" />
+    <jar href="lib\appdriver-iface.jar" size="6229" download="eager" />
     <jar href="lib\bcprov-jdk16-145.jar" size="1719483" download="eager" />
-    <jar href="lib\commons-beanutils-1.9.2.jar" size="233857" download="eager" />
     <jar href="lib\commons-beanutils-1.9.3.jar" size="246174" download="eager" />
     <jar href="lib\commons-codec-1.11.jar" size="335042" download="eager" />
-    <jar href="lib\commons-codec-1.9.jar" size="263965" download="eager" />
     <jar href="lib\commons-collections-3.2.2.jar" size="588337" download="eager" />
     <jar href="lib\commons-compress-1.9.jar" size="378217" download="eager" />
     <jar href="lib\commons-dbcp-1.2.2.jar" size="121757" download="eager" />
     <jar href="lib\commons-dbcp2-2.7.0.jar" size="208475" download="eager" />
     <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />
-    <jar href="lib\commons-lang-2.1.jar" size="207723" download="eager" />
     <jar href="lib\commons-lang3-3.3.2.jar" size="412740" download="eager" />
     <jar href="lib\commons-logging-1.1.1.jar" size="60686" download="eager" />
     <jar href="lib\commons-pool-1.5.4.jar" size="96221" download="eager" />
@@ -35,37 +32,30 @@
     <jar href="lib\jackson-annotations-2.9.5.jar" size="66983" download="eager" />
     <jar href="lib\jackson-core-2.9.5.jar" size="321590" download="eager" />
     <jar href="lib\jackson-databind-2.9.5.jar" size="1342410" download="eager" />
-    <jar href="lib\jakarta.persistence-2.2.3.jar" size="173811" download="eager" />
     <jar href="lib\jasperreports-6.7.0.jar" size="5528257" download="eager" />
+    <jar href="lib\javax.persistence-2.2.1.jar" size="203426" download="eager" />
     <jar href="lib\json-simple-1.1.1.jar" size="23737" download="eager" />
     <jar href="lib\lp-client.jar" size="176350" download="eager" />
     <jar href="lib\lp-food-reports.jar" size="403807" download="eager" />
-    <jar href="lib\lp-inventory-base.jar" size="518269" download="eager" />
+    <jar href="lib\lp-inventory-base.jar" size="518724" download="eager" />
     <jar href="lib\lp-inventory-pojo.jar" size="214255" download="eager" />
-    <jar href="lib\lp-parameter-agent.jar" size="635756" download="eager" />
+    <jar href="lib\lp-parameter-agent.jar" size="637960" download="eager" />
     <jar href="lib\lp-parameter-base.jar" size="173980" download="eager" />
     <jar href="lib\lp-parameter-pojo.jar" size="123224" download="eager" />
-    <jar href="lib\lp-payment-agent.jar" size="254984" download="eager" />
     <jar href="lib\lp-pos-reports.jar" size="166260" download="eager" />
-    <jar href="lib\lp-purchasing-agent.jar" size="82670" download="eager" />
+    <jar href="lib\lp-purchasing-agent.jar" size="82896" download="eager" />
     <jar href="lib\lp-purchasing-base.jar" size="92117" download="eager" />
     <jar href="lib\lp-purchasing-pojo.jar" size="87420" download="eager" />
     <jar href="lib\lp-sales-agent.jar" size="104228" download="eager" />
     <jar href="lib\lp-sales-base.jar" size="94466" download="eager" />
     <jar href="lib\lp-sales-pojo.jar" size="69406" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.49.jar" size="1006904" download="eager" />
-    <jar href="lib\org.eclipse.persistence.antlr-2.7.10.jar" size="147580" download="eager" />
-    <jar href="lib\org.eclipse.persistence.asm-9.2.0.jar" size="322138" download="eager" />
-    <jar href="lib\org.eclipse.persistence.core-2.7.10.jar" size="5248894" download="eager" />
-    <jar href="lib\org.eclipse.persistence.jpa-2.7.10.jar" size="1413599" download="eager" />
-    <jar href="lib\org.eclipse.persistence.jpa.jpql-2.7.10.jar" size="1333327" download="eager" />
-    <jar href="lib\org.eclipse.persistence.moxy-2.7.10.jar" size="621251" download="eager" />
     <jar href="lib\poi-4.0.1.jar" size="2718209" download="eager" />
     <jar href="lib\poi-ooxml-4.0.1.jar" size="1766188" download="eager" />
     <jar href="lib\poi-ooxml-schemas-4.0.1.jar" size="7771088" download="eager" />
     <jar href="lib\replication-utility.jar" size="30139" download="eager" />
     <jar href="lib\xmlbeans-3.0.2.jar" size="2572733" download="eager" />
-    <jar href="lp-integsys.jar" size="961325" download="eager" />
+    <jar href="lp-integsys.jar" size="963454" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="org.rmj.cas.food.inventory.fx.applications.FoodInventoryFX"  name="lp-integsys" />
   <update check="always"/>

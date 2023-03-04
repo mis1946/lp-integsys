@@ -87,6 +87,7 @@ public class InvTransferController implements Initializable {
     @FXML private Button btnSearch;
     @FXML private Button btnDel;
     @FXML private Button btnBrowse;
+    @FXML private Button btnConfirm;
     @FXML private ImageView imgTranStat;
     @FXML private TextArea txtDetail10;
     @FXML private TextField txtField50;
@@ -144,6 +145,7 @@ public class InvTransferController implements Initializable {
         btnClose.setOnAction(this::cmdButton_Click);
         btnExit.setOnAction(this::cmdButton_Click);
         btnBrowse.setOnAction(this::cmdButton_Click);
+        btnConfirm.setOnAction(this::cmdButton_Click);
         
         txtField01.focusedProperty().addListener(txtField_Focus);
         txtField03.focusedProperty().addListener(txtField_Focus);
@@ -215,6 +217,7 @@ public class InvTransferController implements Initializable {
         btnNew.setVisible(!lbShow);
         btnPrint.setVisible(!lbShow);
         btnClose.setVisible(!lbShow);
+        btnConfirm.setVisible(!lbShow);
         
         txtField01.setDisable(!lbShow);
         txtField03.setDisable(!lbShow);
@@ -578,6 +581,27 @@ public class InvTransferController implements Initializable {
                         ShowMessageFX.Warning(poTrans.getMessage(), pxeModuleName, "Please verify your entry.");
                     return;
                 } 
+            
+            case "btnConfirm":
+                if (!psOldRec.equals("")){
+                    if(poTrans.getMaster("cTranStat").equals(TransactionStatus.STATE_CANCELLED) ||
+                        poTrans.getMaster("cTranStat").equals(TransactionStatus.STATE_POSTED) ||
+                        poTrans.getMaster("cTranStat").equals(TransactionStatus.STATE_VOID)){
+                        ShowMessageFX.Warning("Trasaction may be CANCELLED/POSTED.", pxeModuleName, "Can't update processed transactions!!!");
+                        return;
+                    }
+                    if( ShowMessageFX.YesNo(null, pxeModuleName, "Do you want to confirm this transasction?")== true){
+                        if (poTrans.postTransaction(psOldRec,(Date)poTrans.getMaster("dTransact"))){
+                        ShowMessageFX.Information(null, pxeModuleName, "Transaction CONFIRMED successfully.");
+                        clearFields();
+                        initGrid();
+                        pnEditMode = EditMode.UNKNOWN;
+                        initButton(pnEditMode);
+                        }
+                    }
+                } else ShowMessageFX.Warning(null, pxeModuleName, "Please select a record to confirm!");
+                
+                break;
             case "btnBrowse":
                 switch(pnIndex){
                     case 50: /*sTransNox*/
@@ -930,7 +954,7 @@ public class InvTransferController implements Initializable {
         String lsValue = txtDetail.getText();
         
         if (pnRow < 0) return;
-        if (lsValue == null) return;
+//        if (lsValue == null) return;
         
         if(!nv){ /*Lost Focus*/     
             switch (lnIndex){
@@ -1122,8 +1146,9 @@ public class InvTransferController implements Initializable {
             JSONObject json_obj = new JSONObject();
             json_obj.put("sField01", (String) poTrans.getDetailOthers(lnCtr, "sBarCodex"));
             json_obj.put("sField02", (String) poTrans.getDetailOthers(lnCtr, "sDescript"));
-            json_obj.put("nField01", (int) poTrans.getDetail(lnCtr, "nQuantity"));
+            json_obj.put("nField01", (double) poTrans.getDetail(lnCtr, "nQuantity"));
             json_obj.put("lField01", Double.valueOf(poTrans.getDetail(lnCtr, "nInvCostx").toString()));
+            json_obj.put("sField05", (String) poTrans.getDetailOthers(lnCtr, "sMeasurNm"));
             json_arr.add(json_obj);
         }
         

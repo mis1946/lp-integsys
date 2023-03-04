@@ -2,10 +2,17 @@ package org.rmj.cas.food.inventory.fx.views;
 
 import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.ReadOnlyBooleanPropertyBase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -35,6 +42,7 @@ import org.json.simple.JSONObject;
 import org.rmj.appdriver.constants.EditMode;
 import org.rmj.appdriver.constants.TransactionStatus;
 import org.rmj.appdriver.GRider;
+import org.rmj.appdriver.SQLUtil;
 import org.rmj.appdriver.agentfx.ShowMessageFX;
 import org.rmj.appdriver.agentfx.CommonUtils;
 import org.rmj.cas.inventory.base.Inventory;
@@ -207,9 +215,13 @@ public class POReceivingController implements Initializable {
                 loInventory = poTrans.GetInventory(lsStockIDx, true, false);
                 psBarCodex = (String) loInventory.getMaster("sBarCodex");
                 psDescript = (String) loInventory.getMaster("sDescript");
+                txtDetail04.setDisable(true);
+                txtDetail80.setDisable(true);
             } else {
                 psBarCodex = (String) poTrans.getDetail(pnRow, 100);
                 psDescript = (String) poTrans.getDetail(pnRow, 101);
+                txtDetail04.setDisable(false);
+                txtDetail80.setDisable(false);
             }
             
             txtDetail04.setText(psBarCodex);
@@ -230,6 +242,8 @@ public class POReceivingController implements Initializable {
             txtDetail10.setText(CommonUtils.xsDateMedium((Date) poTrans.getDetail(pnRow, "dExpiryDt")));
             
             Combo06.getSelectionModel().select(Integer.parseInt((String) poTrans.getDetail(pnRow, 6)));
+            System.out.println("sStockIDx = " + poTrans.getDetail(pnRow, "sStockIDx"));
+           
         } else{
             txtDetail03.setText("");
             txtDetail04.setText("");
@@ -421,10 +435,11 @@ public class POReceivingController implements Initializable {
                     ShowMessageFX.Information(null, pxeModuleName, "Transaction saved successfuly.");
                     
                     //re open and print the record
+                    
                     if (poTrans.openRecord((String) poTrans.getMaster("sTransNox"))){
                         loadRecord(); 
                         psOldRec = (String) poTrans.getMaster("sTransNox");
-                        
+                        System.out.println("psOldRec = " + psOldRec);
                         if (poTrans.printRecord()) poTrans.closeRecord(psOldRec);
                         
                         pnEditMode = poTrans.getEditMode();
@@ -665,12 +680,17 @@ public class POReceivingController implements Initializable {
         JSONObject loJSON;
         
         if (event.getCode() == F3){                    
-            if (lsValue.isEmpty()) return;
+//            if (lsValue.isEmpty()) return;
             switch (lnIndex){
                 case 3:                    
                     loJSON = poTrans.SearchDetail(pnRow, 3, lsValue, false, false);                  
                     if (loJSON != null){
                         txtDetail03.setText((String) loJSON.get("sTransNox"));
+                        pnRow = 0;
+                        setDetailInfo();
+                    }else{
+                        ShowMessageFX.Error("", pxeModuleName, "No record found.");
+                        
                     }
                     break;
                 case 4:
@@ -884,6 +904,7 @@ public class POReceivingController implements Initializable {
                 case 4: /*Barcode*/
                     if (poTrans.getDetail(pnRow, "sStockIDx").equals("")){
                         poTrans.setDetail(pnRow, 100, txtDetail04.getText());
+                        loadDetail();
                     }
                     break;
                 case 80: /*Description*/
