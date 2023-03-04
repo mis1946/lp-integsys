@@ -34,14 +34,8 @@
         </group>
         <group name="LP IntegSys"/>
         <group>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/DailyProductionRegController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/PurchaseOrderRegController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvTransferController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvTransPostingController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/DailyProductionController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvAdjustmentController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvWasteController.java</file>
-            <file>file:/C:/Users/Maynard/Documents/GitHub/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvWasteRegController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvAdjustmentController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InventoryController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -288,17 +288,34 @@ public class InventoryController implements Initializable {
                     break;
                     
                 case 52:
-                    int lnQty;
-                    try {
-                        lnQty = Integer.parseInt(txtField.getText());
-                    } catch (Exception e) {
-                        lnQty = 0;
-                        txtField.setText("0");
+                    
+                    double lnQty;
+                    try{
+//                    try {
+//                        System.out.println(txtField.getText().toString());
+//                        lnQty = Integer.parseInt(txtField.getText().toString());
+//                    } catch (Exception e) {
+//                        lnQty = 0;
+//                        txtField.setText("0");
+//                    }
+                    if(!txtField.getText().trim().isEmpty()){
+                        System.out.println(txtField.getText().toString());
+                        lnQty =  Double.parseDouble(txtField.getText().toString());
+                    }else{
+                        lnQty = Double.parseDouble(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
+//                        txtField.setText("0");
                     }
                     poRecord.setSubUnit(pnRow, "nQuantity", lnQty);
                     txtField50.setText("");
                     txtField51.setText(""); 
+                    txtField.setText("0");
                     loadDetail2Grid();
+                    }catch(NullPointerException e){
+                        lnQty = 0;
+                        txtField.setText("0");
+                        
+                    }
+                    
                     return;
                  case 80: /*Search for Barcode*/
                     if(event.getCode() == F3) lsValue = txtField.getText() + "%";
@@ -953,15 +970,39 @@ public class InventoryController implements Initializable {
                 case 51: /**/
                      return;
                 case 52: 
-                    int lnQuantity;
+                    double lnQuantity;
+////                    try{
+////                        lnQuantity=Integer.parseInt(txtField.getText().toString());
+////                    }catch (Exception e){
+////                        lnQuantity = 0;
+////                        txtField.setText("0");
+////                    }
+//                    if(!txtField.getText().toString().trim().isEmpty()){
+//                        lnQuantity = (int) Double.parseDouble(lsValue);
+//                    }else{
+//                        lnQuantity = 0;
+//                        txtField.setText("0");
+//                    }
+//                    System.out.println(lsValue);
+//                    poRecord.setSubUnit(pnRow, "nQuantity", lnQuantity);
+//                    txtField.setText(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
                     try{
-                        lnQuantity=Integer.parseInt(txtField.getText());
+                        if(!txtField.getText().trim().isEmpty()){
+                            System.out.println(txtField.getText().toString());
+                            lnQuantity =  Double.parseDouble(txtField.getText().toString());
+                        }else{
+                            lnQuantity =  Double.parseDouble(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
+//                            txtField.setText("0");
+                        }
+                        poRecord.setSubUnit(pnRow, "nQuantity", lnQuantity);
+                        txtField.setText(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
+                        loadDetail2Grid();
                     }catch (Exception e){
                         lnQuantity = 0;
-                        txtField.setText("0");
+                        txtField.setText(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
+//                        txtField.setText("0");
                     }
-                    poRecord.setSubUnit(pnRow, "nQuantity", lnQuantity);
-                    txtField.setText(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
+                    
                     break;
                     
                 case 80:
@@ -991,17 +1032,23 @@ public class InventoryController implements Initializable {
         boolean lbShow = (pnEditMode == EditMode.ADDNEW || pnEditMode == EditMode.UPDATE);
         
         try{
-            if (poRecord.getSubUnit(pnRow, "sItmSubID") != null){  
+            if (poRecord.getSubUnit(pnRow, "sItmSubID") != null ||
+                    poRecord.getSubUnit(pnRow, "sItmSubID").toString().isEmpty()){  
                 txtField50.setText((String) poRecord.SearchSubUnit(pnRow, "sItmSubID", String.valueOf(poRecord.getSubUnit(pnRow, "sItmSubID")), false, true));
                 txtField51.setText((String) poRecord.SearchSubUnit(pnRow, "sItmSubID", String.valueOf(poRecord.getSubUnit(pnRow, "sItmSubID")), true, true));
                 txtField52.setText(String.valueOf(poRecord.getSubUnit(pnRow, "nQuantity")));
                 
-                if (lbShow){
-                    txtField50.setDisable(!txtField52.getText().equals("0"));
-                    txtField51.setDisable(!txtField52.getText().equals("0"));
-                    txtField52.setDisable(!txtField52.getText().equals("0"));
-                    if (txtField52.getText().equals("0")) txtField50.requestFocus();
-                }
+//                if (lbShow){
+//                    txtField50.setDisable(!txtField52.getText().equals("0"));
+//                    txtField51.setDisable(!txtField52.getText().equals("0"));
+//                    txtField52.setDisable(!txtField52.getText().equals("0"));
+//                    if (txtField52.getText().equals("0")) txtField50.requestFocus();
+//                }
+                txtField50.setDisable(!lbShow);
+                txtField51.setDisable(!lbShow);
+                txtField52.setDisable(!lbShow);
+                if(lbShow)txtField50.requestFocus();
+                
             } else{
                 txtField50.setText("");
                 txtField51.setText("");

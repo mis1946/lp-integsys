@@ -50,6 +50,7 @@ import org.rmj.appdriver.SQLUtil;
 import org.rmj.appdriver.agentfx.ShowMessageFX;
 import org.rmj.appdriver.agentfx.CommonUtils;
 import org.rmj.cas.inventory.base.InvTransfer;
+import org.rmj.cas.inventory.base.Inventory;
 import org.rmj.cas.parameter.agent.XMBranch;
 
 
@@ -426,8 +427,9 @@ public class InvTransferRegController implements Initializable {
             JSONObject json_obj = new JSONObject();
             json_obj.put("sField01", (String) poTrans.getDetailOthers(lnCtr, "sBarCodex"));
             json_obj.put("sField02", (String) poTrans.getDetailOthers(lnCtr, "sDescript"));
-            json_obj.put("nField01", (int) poTrans.getDetail(lnCtr, "nQuantity"));
+            json_obj.put("nField01", (double) poTrans.getDetail(lnCtr, "nQuantity"));
             json_obj.put("lField01", Double.valueOf(poTrans.getDetail(lnCtr, "nInvCostx").toString()));
+            json_obj.put("sField05", (String) poTrans.getDetailOthers(lnCtr, "sMeasurNm"));
             json_arr.add(json_obj);
         }
         
