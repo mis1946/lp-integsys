@@ -200,9 +200,9 @@ public class InvAdjustmentController implements Initializable {
     private final String pxeModuleName = "Inventory Adjustment Controller";
     private static GRider poGRider;
     private InvAdjustment poTrans;
-    private int pnCrdtTotl=0;
-    private int pnDbtTotl=0;
-    private int pnValTotl=0;
+    private double pnCrdtTotl=0;
+    private double pnDbtTotl=0;
+    private double pnValTotl=0;
     
     private boolean pbFound;
     private int pnlRow=0;
@@ -330,7 +330,7 @@ public class InvAdjustmentController implements Initializable {
                     }catch (NumberFormatException e){
                         x = 0;
                     }
-                    if((int) poTrans.getDetail(pnRow, "nDebitQty") > 0) {
+                    if((double)poTrans.getDetail(pnRow, "nDebitQty") > 0) {
                         ShowMessageFX.Warning(null, pxeModuleName, "Debit Qty must be zero");
                         x = 0;
                         txtDetail.setText("0");
@@ -810,9 +810,9 @@ public class InvAdjustmentController implements Initializable {
                                     "",
                                     ""));
             
-            pnValTotl = pnValTotl+ (int) poTrans.getDetailOthers(lnCtr, "nQtyOnHnd");
-            pnCrdtTotl = pnCrdtTotl + (int) poTrans.getDetail(lnCtr, "nCredtQty");
-            pnDbtTotl = pnDbtTotl + (int) poTrans.getDetail(lnCtr, "nDebitQty");
+            pnValTotl = pnValTotl + (double) poTrans.getDetailOthers(lnCtr, "nQtyOnHnd");
+            pnCrdtTotl = pnCrdtTotl + (double) poTrans.getDetail(lnCtr, "nCredtQty");
+            pnDbtTotl = pnDbtTotl + (double) poTrans.getDetail(lnCtr, "nDebitQty");
         }
     
         /*FOCUS ON FIRST ROW*/

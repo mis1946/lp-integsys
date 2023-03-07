@@ -34,8 +34,8 @@
         </group>
         <group name="LP IntegSys"/>
         <group>
-            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvAdjustmentController.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InventoryController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/POReceivingController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/GitHub/LPedritos/lp-integsys/src/org/rmj/cas/food/inventory/fx/views/InvTransferController.java</file>
         </group>
     </open-files>
 </project-private>
