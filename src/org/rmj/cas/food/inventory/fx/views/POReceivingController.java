@@ -405,7 +405,7 @@ public class POReceivingController implements Initializable {
                         return;
                     }
                     if( ShowMessageFX.YesNo(null, pxeModuleName, "Do you want to confirm this transasction?")== true){
-                        if (poTrans.postRecord(psOldRec)){
+                        if (poTrans.closeRecord(psOldRec)){
                         ShowMessageFX.Information(null, pxeModuleName, "Transaction CONFIRMED successfully.");
                         clearFields();
                         initGrid();

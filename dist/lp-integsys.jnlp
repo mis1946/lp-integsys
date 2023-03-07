@@ -37,7 +37,7 @@
     <jar href="lib\json-simple-1.1.1.jar" size="23737" download="eager" />
     <jar href="lib\lp-client.jar" size="176350" download="eager" />
     <jar href="lib\lp-food-reports.jar" size="403807" download="eager" />
-    <jar href="lib\lp-inventory-base.jar" size="518724" download="eager" />
+    <jar href="lib\lp-inventory-base.jar" size="518811" download="eager" />
     <jar href="lib\lp-inventory-pojo.jar" size="214255" download="eager" />
     <jar href="lib\lp-parameter-agent.jar" size="637960" download="eager" />
     <jar href="lib\lp-parameter-base.jar" size="173980" download="eager" />
@@ -55,7 +55,7 @@
     <jar href="lib\poi-ooxml-schemas-4.0.1.jar" size="7771088" download="eager" />
     <jar href="lib\replication-utility.jar" size="30139" download="eager" />
     <jar href="lib\xmlbeans-3.0.2.jar" size="2572733" download="eager" />
-    <jar href="lp-integsys.jar" size="963454" download="eager" />
+    <jar href="lp-integsys.jar" size="963504" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="org.rmj.cas.food.inventory.fx.applications.FoodInventoryFX"  name="lp-integsys" />
   <update check="always"/>

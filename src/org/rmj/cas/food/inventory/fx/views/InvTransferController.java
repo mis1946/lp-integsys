@@ -591,7 +591,7 @@ public class InvTransferController implements Initializable {
                         return;
                     }
                     if( ShowMessageFX.YesNo(null, pxeModuleName, "Do you want to confirm this transasction?")== true){
-                        if (poTrans.postTransaction(psOldRec,(Date)poTrans.getMaster("dTransact"))){
+                        if (poTrans.closeTransaction(psOldRec)){
                         ShowMessageFX.Information(null, pxeModuleName, "Transaction CONFIRMED successfully.");
                         clearFields();
                         initGrid();

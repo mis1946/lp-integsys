@@ -706,7 +706,7 @@ public class DailyProductionController implements Initializable {
         if (event.getCode() == F3){
             switch (lnIndex){
                 case 3:
-                    if (poTrans.SearchDetail(pnRow, 3, lsValue, true, true)){
+                    if (poTrans.SearchDetail(pnRow, 3, lsValue, false, true)){
                         txtDetail03.setText(poTrans.getDetailOthers(pnRow, "sBarCodex").toString());
                         txtDetail80.setText(poTrans.getDetailOthers(pnRow, "sDescript").toString());
                     } else {
@@ -825,6 +825,16 @@ public class DailyProductionController implements Initializable {
         if (!rawData.isEmpty()){
             table1.getSelectionModel().select(lnRow -1);
             table1.getFocusModel().focus(lnRow -1);
+            
+            tableData.setItems(getRecordData(table1.getSelectionModel().getSelectedIndex()));
+            if(!poTrans.getInv(pnRawdata, "sStockIDx").equals("")){
+            txtDetail07.setText(CommonUtils.xsDateMedium((Date) poTrans.getInv(pnRawdata, "dExpiryDt")));
+        }else{
+            txtDetail07.setText(CommonUtils.xsDateLong((Date) java.sql.Date.valueOf(LocalDate.now())));
+        }
+//             if(!pbFound){
+//                 addDetailData(pnlRow);
+//             }
         }
     }
     
@@ -1055,9 +1065,10 @@ public class DailyProductionController implements Initializable {
        if(pnRawdata < 0) return;
        
        tableData.setItems(getRecordData(pnRawdata));
-        if(!pbFound){
-            addDetailData(pnlRow);
-        }
+       tableData.getSelectionModel().select(0);
+//        if(!pbFound){
+//            addDetailData(pnlRow);
+//        }
         
         if(!poTrans.getInv(pnRawdata, "sStockIDx").equals("")){
             txtDetail07.setText(CommonUtils.xsDateMedium((Date) poTrans.getInv(pnRawdata, "dExpiryDt")));
@@ -1071,6 +1082,7 @@ public class DailyProductionController implements Initializable {
      */
     private void addDetailData(int fnRow){
         if (poTrans.getInv(pnRawdata, "sStockIDx").equals("")) return;
+        System.out.println("fnRow = " + fnRow);
         
         TableModel newData = new TableModel();
         newData.setIndex01(String.valueOf(fnRow + 1));
@@ -1087,7 +1099,7 @@ public class DailyProductionController implements Initializable {
         
         index02.setSortType(TableColumn.SortType.ASCENDING);
         tableData.getSortOrder().add(index02);
-        tableData.sort();
+//        tableData.sort();
                 
         
     }
@@ -1120,13 +1132,14 @@ public class DailyProductionController implements Initializable {
                         String.valueOf(loRS.getInt("nQtyOnHnd")),
                         String.valueOf(lnQuantity),
                         String.valueOf((int)loRS.getInt("nQtyOnHnd") - (int) lnQuantity),
-                        "",
+                        String.valueOf(loRS.getInt("sStockIDx")),
                         "",
                         "",
                         "",
                         ""     
                     ));
                     pnlRow++;
+                    
                     loRS.next();
                 }
         } catch (SQLException ex) {
@@ -1166,9 +1179,10 @@ public class DailyProductionController implements Initializable {
                             " AND sBranchCd = " + SQLUtil.toSQL(poGRider.getBranchCode()) +
                             " AND nQtyOnHnd > 0" +
                         " ORDER BY dExpiryDt";     
-        
+        System.out.println(lsSQL);
         ResultSet loRS = poGRider.executeQuery(lsSQL);
         
         return loRS;
     }
 }
+//
